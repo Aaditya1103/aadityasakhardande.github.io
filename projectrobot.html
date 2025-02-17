@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Massively</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="#skills">Skills</a></li>
+							<li><a href="#coursework">Coursework</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+                            <header class="major">
+                                <span class="date">August 2024 - December 2024</span>
+                                <h1>Solving a 4x4 Maze with<br />MyCobot Pro 600</h1>
+								<a href="https://github.com/Aaditya1103/Autonomous-Maze-Solver-using-MyCobot-Pro-600" class="github-bot">GitHub</a>
+									<style>
+									.github-bot {
+											display: inline-block;
+											padding: 1px 24px;
+											background-color: #555; 
+											color: white;
+											text-decoration: none;
+											font-size: 18px;
+											font-weight: bold;
+											border-radius: 4px; /* Rounded edges */
+											transition: background-color 0.3s ease, transform 0.2s ease;
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+										}
+
+										.github-bot:hover {
+											background-color: #333; /* Darker grey on hover */
+											transform: scale(1.05); /* Slight pop effect */
+										}
+
+										.github-bot:active {
+											background-color: #222;
+											transform: scale(0.98);
+										}
+
+									</style>
+                                <p>This project focuses on utilizing the MyCobot Pro 600 robotic arm to autonomously navigate and solve a 4x4 maze using image processing, path planning, and a digital twin simulation. The project integrates robotics, computer vision, and control algorithms to develop an efficient and repeatable methodology for maze-solving.</p>
+                            </header>
+
+                            <div class="image main"><img src="images/maze_detection.jpg" alt="Maze detection using OpenCV" /></div>
+                            <div class="image main"><img src="images/digital_twin.jpg" alt="Digital twin simulation of MyCobot Pro 600" /></div>
+                            <div class="image main"><img src="images/robot_execution.jpg" alt="Robot executing planned path" /></div>
+                            
+                            <h3>Features</h3>
+                            <ul>
+                                <li><strong>Maze Recognition and Image Processing</strong>: The AI Kit's camera captures an image of the maze, which is processed to identify the entrance, exit, and navigable path.</li>
+                                <li><strong>Automated Waypoint Generation</strong>: The system converts the maze solution into a series of precise waypoints for the robot to follow.</li>
+                                <li><strong>Digital Twin Simulation</strong>: A virtual representation of the MyCobot Pro 600 is used to simulate the planned trajectory before real-world execution.</li>
+                                <li><strong>ArUco Marker-Based Calibration</strong>: Optional ArUco markers enhance workspace alignment and improve precision.</li>
+                            </ul>
+                            
+                            <h3>Technologies Used</h3>
+                            <ul>
+                                <li><strong>MATLAB</strong>: For digital twin modeling, inverse kinematics, and TCP/IP communication.</li>
+                                <li><strong>OpenCV</strong>: For image processing, maze detection, and feature extraction.</li>
+                                <li><strong>ROS</strong>: For robot simulation and real-time control.</li>
+                                <li><strong>Socket Programming</strong>: Enables communication between the AI Kit, MyCobot Pro 600, and the control system.</li>
+                            </ul>
+                            <div class="image main"><img src="images/maze_solver.jpg" alt="MyCobot Pro 600 solving a maze" /></div>
+                            <h3>Workflow and Functionality</h3>
+                            <ul>
+                                <li><strong>Maze Generation</strong>: A procedural tool generates different 4x4 mazes with varying complexity.</li>
+                                <li><strong>Image Processing</strong>: The AI Kit captures an image of the maze, which is analyzed to detect walls, pathways, and entry/exit points.</li>
+                                <li><strong>Path Planning</strong>: Using algorithms like BFS, A*, and Watershed Transform, the system computes the shortest path through the maze.</li>
+                                <li><strong>Waypoint Conversion</strong>: The solution path is translated into real-world coordinates for robot execution.</li>
+                                <li><strong>Digital Twin Validation</strong>: The planned movement is tested in a digital twin environment before physical execution.</li>
+                                <li><strong>Robot Execution</strong>: The MyCobot Pro 600 follows the computed waypoints with smooth and precise movement.</li>
+                            </ul>
+                            
+                            <h3>Challenges Faced</h3>
+                            <ul>
+                                <li><strong>Camera Calibration</strong>: Ensuring accurate mapping of pixel coordinates to real-world waypoints.</li>
+                                <li><strong>Noise in Image Processing</strong>: Reducing errors caused by lighting conditions and reflections.</li>
+                                <li><strong>Precision of Movement</strong>: Achieving smooth motion while avoiding unnecessary deviation.</li>
+                                <li><strong>Real-Time Execution</strong>: Balancing processing speed with robot response time.</li>
+                            </ul>
+                            
+                            <h3>Impact</h3>
+                            <p>This project enhances robotic autonomy by integrating vision-based navigation with real-time motion planning. It serves as a practical application of robot kinematics, inverse kinematics, and control algorithms, demonstrating the potential of robotic arms in automated problem-solving scenarios.</p>
+                        </section>
+                        
+                        
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>2150 S 55th Street<br />
+								Tempe, AZ 85282</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

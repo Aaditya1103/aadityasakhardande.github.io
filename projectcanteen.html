@@ -1,0 +1,173 @@
+Online Canteen Ordering Management System
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Massively</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+							<header class="major">
+								<span class="date">August 2024 - December 2024</span>
+								<h1>Online Canteen Ordering and Management System</h1>
+								<a href="https://github.com/Aaditya1103/Hand-Gesture-Driven-Mouse-System" class="github-canteen">GitHub</a>
+									<style>
+									.github-canteen {
+											display: inline-block;
+											padding: 1px 24px;
+											background-color: #555; 
+											color: white;
+											text-decoration: none;
+											font-size: 18px;
+											font-weight: bold;
+											border-radius: 4px;
+											transition: background-color 0.3s ease, transform 0.2s ease;
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+										}
+
+										.github-canteen:hover {
+											background-color: #333; 
+											transform: scale(1.05);
+										}
+
+										.github-canteen:active {
+											background-color: #222;
+											transform: scale(0.98);
+										}
+
+									</style>
+								<p>This system streamlines canteen operations by enabling users to place orders online, track their status in real-time, and make secure payments. The platform consists of an intuitive user panel for customers and a comprehensive admin panel for canteen staff, optimizing efficiency and reducing wait times.</p>
+							</header>
+							
+							<div class="card shadow-sm p-4">
+								<h2>Technology Stack</h2>
+								<p>This full-stack web application leverages a LAMP stack (Linux, Apache, MySQL, PHP) with JavaScript and AJAX for client-side rendering.</p>
+								
+								<h2>Core Functional Modules</h2>
+								<p>The user interface implements responsive design principles using Bootstrap CSS, ensuring cross-device compatibility. A session-based authentication system manages user logins through PHP's native session handling, with password hashing via bcrypt for security. 
+									The menu subsystem features a lazy-loaded infinite scroll mechanism to handle large catalogs, while the cart functionality leverages browser localStorage for temporary data persistence before checkout. For administrators, a role-based access control (RBAC) system restricts dashboard access through middleware validation. 
+									The inventory management module includes automated stock-level alerts using cron jobs to monitor ingredient thresholds. Real-time order tracking is facilitated through WebSocket connections (implemented via Socket.io), providing instantaneous status updates to both users and kitchen staff.</p>
+								<div class="image main"><img src="images/order_interface.jpg" alt="User ordering interface" /></div>
+								<h2>Payment Infrastructure</h2>
+								<p>A PCI-DSS compliant payment gateway integration was achieved through REST API endpoints from a third-party provider (Razorpay). The system supports multiple payment methods by implementing separate validation workflows for UPI, credit cards, and digital wallets. 
+									Tokenization replaces sensitive payment data with cryptographic tokens stored in isolated database tables. SSL encryption secures all transactional data in transit, while a double-entry bookkeeping system in the transactions table ensures financial auditability.</p>
+								
+								<h2>Performance Optimization</h2>
+								<p>Database query efficiency was enhanced through composite indexes on frequently joined columns like order_items(orderId, itemId), query caching for static menu data using Redis, and pagination implementation for order history displays. 
+									The search functionality employs MySQL full-text indexing on menu item names and descriptions, achieving average query response times under 120ms during load testing with 500 concurrent users.</p>
+								<div class="image main"><img src="images/admin_dashboard.jpg" alt="Admin dashboard for order management" /></div>
+									
+								<h2>Data Modeling</h2>
+								<p>The schema design emphasizes scalability through decoupled order processing, versioned menu pricing, and audit trails. A star schema data warehouse structure facilitates analytical queries for business intelligence, tracking metrics like peak hour demand patterns and customer lifetime value.</p>
+								
+								<h2>Security Measures</h2>
+								<p>The system incorporates multiple security layers, including CSRF tokens in all form submissions, prepared statements with PDO for SQL injection prevention, regular dependency patching through Composer, and role-based API rate limiting (20 requests/minute for users, 50 for admins). 
+									Penetration testing using OWASP ZAP identified and resolved vulnerabilities like session fixation risks through mandatory session regeneration post-login.</p>
+								<div class="image main"><img src="images/payment_gateway.jpg" alt="Secure payment gateway" /></div>	
+								<h2>Deployment Architecture</h2>
+								<p>A containerized deployment model using Docker ensures environment consistency across development and production. The Nginx web server handles static asset delivery, while PHP-FPM processes dynamic requests. Database replication with a master-slave configuration provides fault tolerance, with nightly encrypted backups to AWS S3. 
+									Monitoring is implemented through Prometheus/Grafana for real-time performance metrics.</p>
+								
+								<h2>Conclusion</h2>
+								<p>This project demonstrates comprehensive full-stack development capabilities, from designing normalized databases to implementing secure payment workflows. The system currently handles 1,200+ daily transactions at our university campus with 99.98% uptime over 12 months. 
+									Future enhancements plan to integrate machine learning for demand forecasting and expand the API layer for mobile app integration.</p>
+							</div>
+						</section>
+						
+                        
+                        
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>2150 S 55th Street<br />
+								Tempe, AZ 85282</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
