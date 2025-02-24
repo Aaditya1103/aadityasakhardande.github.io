@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -27,8 +21,8 @@
 						<ul class="links">
 							<li class="active"><a href="index.html">Projects</a></li>
 							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
-							<li><a href="#skills">Skills</a></li>
-							<li><a href="#coursework">Coursework</a></li>
+							<li><a href="index.html#skills">Skills</a></li>
+							<li><a href="index.html#coursework">Coursework</a></li>
 							<li><a href="aboutme.html">About Me</a></li>
 						</ul>
 						<ul class="icons">
@@ -48,36 +42,53 @@
 								<a href="https://github.com/Aaditya1103/Autonomous-Maze-Solver-using-MyCobot-Pro-600" class="github-bot">GitHub</a>
 									<style>
 									.github-bot {
-											display: inline-block;
-											padding: 1px 24px;
-											background-color: #555; 
+											background-color: #212931; 
+											font-family: "Source Sans Pro", Helvetica, sans-serif;
+											font-size: 1rem;
+											font-weight: 200;
 											color: white;
 											text-decoration: none;
-											font-size: 18px;
-											font-weight: bold;
-											border-radius: 4px; /* Rounded edges */
-											transition: background-color 0.3s ease, transform 0.2s ease;
-											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+											-moz-appearance: none;
+											-webkit-appearance: none;
+											-ms-appearance: none;
+											appearance: none;
+											-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											border: 0;
+											border-radius: 0;
+											cursor: pointer;
+											display: inline-block;
+											letter-spacing: 0.075em;
+											height: 3rem;
+											line-height: 3rem;
+											padding: 0 2rem;
+											text-align: center;
+											text-decoration: none;
+											text-transform: uppercase;
+											white-space: nowrap;
 										}
 
-										.github-bot:hover {
-											background-color: #333; /* Darker grey on hover */
-											transform: scale(1.05); /* Slight pop effect */
+										.github-mouse:hover {
+											background-color: #333; 
+											transform: scale(1.05);
 										}
 
-										.github-bot:active {
+										.github-mouse:active {
 											background-color: #222;
 											transform: scale(0.98);
 										}
-
+										video {
+											width: 100%; /* Adjust size as needed */
+											height: auto;
+										}
 									</style>
                                 <p>This project focuses on utilizing the MyCobot Pro 600 robotic arm to autonomously navigate and solve a 4x4 maze using image processing, path planning, and a digital twin simulation. The project integrates robotics, computer vision, and control algorithms to develop an efficient and repeatable methodology for maze-solving.</p>
                             </header>
 
-                            <div class="image main"><img src="images/maze_detection.jpg" alt="Maze detection using OpenCV" /></div>
-                            <div class="image main"><img src="images/digital_twin.jpg" alt="Digital twin simulation of MyCobot Pro 600" /></div>
-                            <div class="image main"><img src="images/robot_execution.jpg" alt="Robot executing planned path" /></div>
-                            
+                            <div class="image main"><img src="images/mycobot.jpg"></div>
                             <h3>Features</h3>
                             <ul>
                                 <li><strong>Maze Recognition and Image Processing</strong>: The AI Kit's camera captures an image of the maze, which is processed to identify the entrance, exit, and navigable path.</li>
@@ -85,7 +96,12 @@
                                 <li><strong>Digital Twin Simulation</strong>: A virtual representation of the MyCobot Pro 600 is used to simulate the planned trajectory before real-world execution.</li>
                                 <li><strong>ArUco Marker-Based Calibration</strong>: Optional ArUco markers enhance workspace alignment and improve precision.</li>
                             </ul>
-                            
+                            <div style="text-align: center;">
+								<video autoplay loop muted>
+									<source src="images/cobotvid.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
                             <h3>Technologies Used</h3>
                             <ul>
                                 <li><strong>MATLAB</strong>: For digital twin modeling, inverse kinematics, and TCP/IP communication.</li>
@@ -93,6 +109,7 @@
                                 <li><strong>ROS</strong>: For robot simulation and real-time control.</li>
                                 <li><strong>Socket Programming</strong>: Enables communication between the AI Kit, MyCobot Pro 600, and the control system.</li>
                             </ul>
+							<div class="image main"><img src="images/mycobot2.jpg"></div>
                             <div class="image main"><img src="images/maze_solver.jpg" alt="MyCobot Pro 600 solving a maze" /></div>
                             <h3>Workflow and Functionality</h3>
                             <ul>
@@ -144,7 +161,8 @@
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>
-								<p>Tempe, AZ 85282</p>
+								<p>2150 S 55th Street<br />
+								Tempe, AZ 85282</p>
 							</section>
 							<section>
 								<h3>Phone</h3>
@@ -165,6 +183,15 @@
 							</section>
 						</section>
 					</footer>
+					<script>
+						document.querySelector('video').playbackRate = 8.0;
+					</script>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>_____________________________________________________________________________________________________________</ul>
+				</div>
+
 			</div>
 
 		<!-- Scripts -->
