@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">AADITYA SAKHARDANDE</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="index.html#skills">Skills</a></li>
+							<li><a href="index.html#coursework">Coursework</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+							<header class="major">
+								<span class="date">December 2023 - May 2024</span>
+								<h1>Online Canteen Ordering and Management System</h1>
+								<a href="https://github.com/Aaditya1103/OCR-Text-Extractor" class="github-ocr">GitHub</a>
+									<style>
+									.github-ocr {
+											background-color: #212931; 
+											font-family: "Source Sans Pro", Helvetica, sans-serif;
+											font-size: 1rem;
+											font-weight: 200;
+											color: white;
+											text-decoration: none;
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+											-moz-appearance: none;
+											-webkit-appearance: none;
+											-ms-appearance: none;
+											appearance: none;
+											-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											border: 0;
+											border-radius: 0;
+											cursor: pointer;
+											display: inline-block;
+											letter-spacing: 0.075em;
+											height: 3rem;
+											line-height: 3rem;
+											padding: 0 2rem;
+											text-align: center;
+											text-decoration: none;
+											text-transform: uppercase;
+											white-space: nowrap;
+										}
+
+										.github-ocr:hover {
+											background-color: #333; 
+											transform: scale(1.05);
+										}
+
+										.github-ocr:active {
+											background-color: #222;
+											transform: scale(0.98);
+										}
+									</style>
+								<p><br>During my Full Stack Developer Internship at MaitriAI, I developed a Biometric OCR System that automated identity verification by extracting and processing textual and biometric data from Aadhar and PAN cards. 
+                                    This project aimed to enhance document recognition accuracy, reduce manual verification efforts, and ensure secure identity authentication using a combination of OCR, deep learning, and database integration.</p>
+							</header>
+							
+							<div class="card shadow-sm p-4">
+								<h2>Project Technical Overview</h2>
+								<p>The system was designed to handle Indian government-issued identity documents, particularly Aadhar cards (used for biometric-based identification) and PAN cards (used for financial and tax-related identification). 
+                                    The key challenge was to ensure high OCR accuracy despite variations in document quality, font styles, distortions, and handwritten elements.
+                                    <br>Using EasyOCR and Pytesseract, an OCR engine powered by Tesseract, I implemented a robust text recognition pipeline capable of handling multiple fonts, languages, and distorted document scans. To enhance accuracy, I incorporated image pre-processing techniques such as noise reduction, thresholding, and contour detection, ensuring clear text extraction even from low-quality inputs.
+                                    <br>A crucial component of this system was biometric data processing, where the extracted information was cross-verified against a secure SQL database. </p>
+								
+								<h2>Text Extraction</h2>
+								<p><li>The Aadhar card OCR module was designed to extract Aadhar Number (12-digit unique identity number), Name of Cardholder, Date of Birth, Gender and Address.</li>
+                                   <li>The PAN card OCR module focused on extracting the Permanent Account Number (PAN) (10-character alphanumeric ID), Name of the Cardholder, Father’s Name, Date of Birth</li>
+                                   The process involves preprocessing Aadhar and PAN card images using grayscale conversion, noise reduction, and skew correction, followed by OCR text extraction, QR code decoding, and database integration for verification and validation.</p>
+								<div class="image main"><img src="images/ .jpg"/></div>
+								<h2>Key Features</h2>
+								<p><li><strong>OCR-based Text Extraction:</strong> Implemented using Pytesseract, capable of recognizing structured and unstructured text from various document formats.</li>
+                                    <li><strong>Deep Learning for Document Classification:</strong> Trained a Convolutional Neural Network (CNN) to classify document types, improving recognition accuracy.</li>
+                                    <li><strong>Image Preprocessing:</strong> Used OpenCV to enhance document clarity through techniques like grayscale conversion, adaptive thresholding, and morphological operations.</li>
+                                    <li><strong>Database Management:</strong> Developed a MySQL-based document storage system for efficiently storing, retrieving, and comparing extracted biometric details.</li></p>
+								
+								<h2>Performance Optimization</h2>
+								<p>Database query efficiency was enhanced through composite indexes on frequently joined columns like order_items(orderId, itemId), query caching for static menu data using Redis, and pagination implementation for order history displays. 
+									The search functionality employs MySQL full-text indexing on menu item names and descriptions, achieving average query response times under 120ms during load testing with 500 concurrent users.</p>
+								<div class="image main"><img src="images/ .jpg"/></div>
+
+								<h2>Challenges and Solutions</h2>
+								<p>One of the main challenges was dealing with noisy or skewed documents, which often led to incorrect text extraction. To solve this, I integrated automated image correction algorithms, including Hough Transform for line detection and perspective transformation, ensuring properly aligned inputs. 
+                                    Additionally, differentiating between handwritten and printed text posed a challenge. By leveraging TensorFlow-based character recognition models, I improved the system’s ability to process diverse text formats.
+                                   <br>Database efficiency was another crucial factor. To speed up queries, I indexed biometric fields and optimized search algorithms, significantly reducing response time during authentication checks.</p>
+								<div class="image main"><img src="images/ .jpg"/></div>	
+
+                                <h2>Impact and Aplications</h2>
+                                <p>This Aadhar and PAN OCR system significantly streamlined the identity verification process, making it faster, more reliable, and automated. The system was particularly useful for:</p>
+                                <ul>
+                                    <li><strong>Banking and Financial Sectors</strong> for KYC (Know Your Customer) compliance.</li>
+                                    <li><strong>E-Governance Portals</strong> to validate identity documents for government schemes.</li>
+                                    <li><strong>Employment and Background Verification</strong> for secure onboarding processes.</li>
+                                </ul>
+                                <p>Through this project, I deepened my understanding of OCR-based document recognition, deep learning for text extraction, and secure database management, making it a real-world application of AI-driven automation in identity verification.</p>
+								
+							</div>
+						</section>
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Tempe, Arizona</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul>_____________________________________________________________________________________________________________</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
