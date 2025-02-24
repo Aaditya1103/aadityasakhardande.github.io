@@ -23,13 +23,15 @@ Online Canteen Ordering Management System
 						<ul class="links">
 							<li class="active"><a href="index.html">Projects</a></li>
 							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="index.html#skills">Skills</a></li>
+							<li><a href="index.html#coursework">Coursework</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
 									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
-
 				<!-- Main -->
 					<div id="main">
 
@@ -38,31 +40,47 @@ Online Canteen Ordering Management System
 							<header class="major">
 								<span class="date">August 2024 - December 2024</span>
 								<h1>Online Canteen Ordering and Management System</h1>
-								<a href="https://github.com/Aaditya1103/Hand-Gesture-Driven-Mouse-System" class="github-canteen">GitHub</a>
+								<a href="https://github.com/Aaditya1103/Online-Canteen" class="github-canteen">GitHub</a>
 									<style>
 									.github-canteen {
-											display: inline-block;
-											padding: 1px 24px;
-											background-color: #555; 
+											background-color: #212931; 
+											font-family: "Source Sans Pro", Helvetica, sans-serif;
+											font-size: 1rem;
+											font-weight: 200;
 											color: white;
 											text-decoration: none;
-											font-size: 18px;
-											font-weight: bold;
-											border-radius: 4px;
-											transition: background-color 0.3s ease, transform 0.2s ease;
 											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+											-moz-appearance: none;
+											-webkit-appearance: none;
+											-ms-appearance: none;
+											appearance: none;
+											-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											border: 0;
+											border-radius: 0;
+											cursor: pointer;
+											display: inline-block;
+											letter-spacing: 0.075em;
+											height: 3rem;
+											line-height: 3rem;
+											padding: 0 2rem;
+											text-align: center;
+											text-decoration: none;
+											text-transform: uppercase;
+											white-space: nowrap;
 										}
 
-										.github-canteen:hover {
+										.github-mouse:hover {
 											background-color: #333; 
 											transform: scale(1.05);
 										}
 
-										.github-canteen:active {
+										.github-mouse:active {
 											background-color: #222;
 											transform: scale(0.98);
 										}
-
 									</style>
 								<p>This system streamlines canteen operations by enabling users to place orders online, track their status in real-time, and make secure payments. The platform consists of an intuitive user panel for customers and a comprehensive admin panel for canteen staff, optimizing efficiency and reducing wait times.</p>
 							</header>
@@ -75,7 +93,7 @@ Online Canteen Ordering Management System
 								<p>The user interface implements responsive design principles using Bootstrap CSS, ensuring cross-device compatibility. A session-based authentication system manages user logins through PHP's native session handling, with password hashing via bcrypt for security. 
 									The menu subsystem features a lazy-loaded infinite scroll mechanism to handle large catalogs, while the cart functionality leverages browser localStorage for temporary data persistence before checkout. For administrators, a role-based access control (RBAC) system restricts dashboard access through middleware validation. 
 									The inventory management module includes automated stock-level alerts using cron jobs to monitor ingredient thresholds. Real-time order tracking is facilitated through WebSocket connections (implemented via Socket.io), providing instantaneous status updates to both users and kitchen staff.</p>
-								<div class="image main"><img src="images/order_interface.jpg" alt="User ordering interface" /></div>
+								<div class="image main"><img src="images/canteen1.jpg"/></div>
 								<h2>Payment Infrastructure</h2>
 								<p>A PCI-DSS compliant payment gateway integration was achieved through REST API endpoints from a third-party provider (Razorpay). The system supports multiple payment methods by implementing separate validation workflows for UPI, credit cards, and digital wallets. 
 									Tokenization replaces sensitive payment data with cryptographic tokens stored in isolated database tables. SSL encryption secures all transactional data in transit, while a double-entry bookkeeping system in the transactions table ensures financial auditability.</p>
@@ -83,7 +101,7 @@ Online Canteen Ordering Management System
 								<h2>Performance Optimization</h2>
 								<p>Database query efficiency was enhanced through composite indexes on frequently joined columns like order_items(orderId, itemId), query caching for static menu data using Redis, and pagination implementation for order history displays. 
 									The search functionality employs MySQL full-text indexing on menu item names and descriptions, achieving average query response times under 120ms during load testing with 500 concurrent users.</p>
-								<div class="image main"><img src="images/admin_dashboard.jpg" alt="Admin dashboard for order management" /></div>
+								<div class="image main"><img src="images/canteen3.jpg"/></div>
 									
 								<h2>Data Modeling</h2>
 								<p>The schema design emphasizes scalability through decoupled order processing, versioned menu pricing, and audit trails. A star schema data warehouse structure facilitates analytical queries for business intelligence, tracking metrics like peak hour demand patterns and customer lifetime value.</p>
@@ -91,7 +109,7 @@ Online Canteen Ordering Management System
 								<h2>Security Measures</h2>
 								<p>The system incorporates multiple security layers, including CSRF tokens in all form submissions, prepared statements with PDO for SQL injection prevention, regular dependency patching through Composer, and role-based API rate limiting (20 requests/minute for users, 50 for admins). 
 									Penetration testing using OWASP ZAP identified and resolved vulnerabilities like session fixation risks through mandatory session regeneration post-login.</p>
-								<div class="image main"><img src="images/payment_gateway.jpg" alt="Secure payment gateway" /></div>	
+								<div class="image main"><img src="images/canteen2.jpg"/></div>	
 								<h2>Deployment Architecture</h2>
 								<p>A containerized deployment model using Docker ensures environment consistency across development and production. The Nginx web server handles static asset delivery, while PHP-FPM processes dynamic requests. Database replication with a master-slave configuration provides fault tolerance, with nightly encrypted backups to AWS S3. 
 									Monitoring is implemented through Prometheus/Grafana for real-time performance metrics.</p>
@@ -131,7 +149,8 @@ Online Canteen Ordering Management System
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>
-								<p>Tempe, AZ 85282</p>
+								<p>2150 S 55th Street<br />
+								Tempe, AZ 85282</p>
 							</section>
 							<section>
 								<h3>Phone</h3>
@@ -151,6 +170,12 @@ Online Canteen Ordering Management System
 							</section>
 						</section>
 					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul>_____________________________________________________________________________________________________________</ul>
+					</div>
+
 			</div>
 
 		<!-- Scripts -->
