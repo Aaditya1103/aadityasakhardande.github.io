@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">AADITYA SAKHARDANDE</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="index.html#skills">Skills</a></li>
+							<li><a href="index.html#coursework">Coursework</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+                            <header class="major">
+                                <span class="date">January 2025 - May 2025</span>
+                                <h1>Parrot Minidrone Line-Following Project</h1>
+								<a href="" class="github-bot">GitHub</a>
+									<style>
+									.github-bot {
+											background-color: #212931; 
+											font-family: "Source Sans Pro", Helvetica, sans-serif;
+											font-size: 1rem;
+											font-weight: 200;
+											color: white;
+											text-decoration: none;
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+											-moz-appearance: none;
+											-webkit-appearance: none;
+											-ms-appearance: none;
+											appearance: none;
+											-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											border: 0;
+											border-radius: 0;
+											cursor: pointer;
+											display: inline-block;
+											letter-spacing: 0.075em;
+											height: 3rem;
+											line-height: 3rem;
+											padding: 0 2rem;
+											text-align: center;
+											text-decoration: none;
+											text-transform: uppercase;
+											white-space: nowrap;
+										}
+
+										.github-mouse:hover {
+											background-color: #333; 
+											transform: scale(1.05);
+										}
+
+										.github-mouse:active {
+											background-color: #222;
+											transform: scale(0.98);
+										}
+										video {
+											width: 60%;
+											height: auto;
+										}
+									</style>
+                                    <p>
+                                        This project focuses on developing a colored line-following system using a Parrot Mambo drone and Simulink.
+                                        The system uses image processing to detect and follow red, green, blue, or yellow lines. The method involves
+                                        color thresholding, position tracking, and flight control integration to ensure precise path following.
+                                    </p>
+                            </header>
+
+                            <div class="image main"><img src="images/"></div>
+                            <p>
+                                Color detection is important for robotic navigation. This project uses a Parrot Mambo minidrone, which has a
+                                camera, SONAR, and pressure sensors. The camera captures RGB images, and MATLAB code processes them to detect
+                                colored lines and direct the drone accordingly.
+                            </p>
+
+                            <h3>Abstract</h3>
+                            <p>
+                                This project implements an autonomous line-following algorithm using the Parrot Mambo Minidrone with Simulink and MATLAB.
+                                It employs real-time image processing techniques to identify and follow colored lines on a flat surface.
+                                The drone’s downward-facing camera captures live video, which is processed through a custom algorithm to detect specific colors (red, blue, green, yellow) and determine the drone’s navigation path.
+                                Additional modules attempt to recognize circular shapes as potential landing zones, although with limited success.
+                            </p>
+
+                            <h3>Introduction</h3>
+                            <p>
+                                Color-based navigation is a foundational problem in robotics, enabling simple yet effective strategies for path planning and target tracking.
+                                In this project, the Parrot Mambo drone serves as a compact and versatile aerial platform to explore visual navigation via color thresholding.
+                                The drone integrates a 3-axis accelerometer, 3-axis gyroscope, ultrasonic altimeter, pressure sensor, and a bottom-facing camera. The onboard camera provides real-time RGB images essential for line tracking.
+                            </p>
+							<div style="text-align: center;">
+								<video autoplay loop muted>
+									<source src="images/drone3.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+                            <p>
+                                Simulink is used to model the drone’s behavior, while MATLAB scripts carry out color segmentation and vector computation.
+                                The overall objective is to enable the drone to autonomously follow colored lines and detect circular patterns for potential landing commands.
+                            </p>
+
+                            <h3>System Architecture</h3>
+                            <p>
+                                The overall system consists of two subsystems:
+                                <strong>Image Processing</strong> and <strong>Flight Control</strong>.
+                                These are modeled as separate blocks in Simulink:
+                            </p>
+                            <ul>
+                                <li><strong>Image Processing Subsystem:</strong> Detects colors from the camera feed and computes direction vectors.</li>
+                                <li><strong>Flight Control Subsystem:</strong> Converts the vector into drone actuation commands (pitch, roll, yaw, throttle).</li>
+                            </ul>
+							<div style="text-align: center;">
+								<video autoplay loop muted>
+									<source src="images/drone1.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+
+                            <h3>Methodology</h3>
+
+                            <h4>Color Thresholding</h4>
+                            <p>
+                                Color segmentation is performed using fixed RGB thresholds. For red detection, the following conditions were used:
+                            </p>
+                            <ul>
+                                <li>R channel: 209 to 245</li>
+                                <li>G channel: 0 to 6</li>
+                                <li>B channel: 0 to 6</li>
+                            </ul>
+                            <p>
+                                The RGB image is masked based on the above thresholds. This isolates regions of interest corresponding to the target color. 
+                                To reduce noise, a field of view (FOV) cone is dynamically adjusted depending on the drone’s current direction.
+                                Pixels outside the FOV or radial bounds are discarded.
+                            </p>
+							<div style="display: flex; justify-content: center;">
+							<img src="images/droneimage2.jpg" style="width: 100%; max-width: 600px; height: auto;">
+							</div>
+                            <h4>Direction Vector Calculation</h4>
+                            <p>
+                                Once valid colored pixels are detected, the centroid of these pixels is computed. A vector from the current position to the centroid is calculated.
+                                This vector becomes the directional cue for the flight control system. If no pixels are detected, a null vector [0 0] is returned, instructing the drone to hover in place.
+                            </p>
+
+                            <h4>Adaptive Control Logic</h4>
+                            <p>
+                                The angle of motion is calculated using <code>atan2(data(2), data(1))</code>.
+                                If the change in angle exceeds a threshold (π/18), the algorithm updates the “current_position” using a weighted average.
+                                When the drone aligns perfectly with the line, the detection cone is widened (FOV = π, r_max = 100) to make the tracking more stable.
+                            </p>
+							<div style="text-align: center;">
+									<video autoplay loop muted width="1100">
+										<source src="images/drone2.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+							</div>
+
+                            <h4>Circle Detection for Landing</h4>
+                            <p>
+                                To simulate autonomous landing, the algorithm also detects circular objects. After color segmentation:
+                            </p>
+                            <ol>
+                                <li>Apply Canny edge detection to locate object boundaries.</li>
+                                <li>Use regionprops to label and calculate area and perimeter.</li>
+                                <li>Compute circularity = 4π × (Area / Perimeter²).</li>
+                                <li>Classify object as a circle if circularity > 0.24.</li>
+                            </ol>
+                            <p>
+                                If a valid circle is found, it is flagged as a potential landing zone. However, in practice, this approach showed inconsistent performance due to edge artifacts and poor lighting.
+                            </p>
+
+                            <h3>Testing and Results</h3>
+                            <p>
+                                The system was tested in a controlled indoor environment using simulated line tracks. The red line yielded the most reliable tracking results.
+                                The drone could consistently follow the line with minor directional corrections. However, increasing the drone’s speed resulted in overshoot or temporary loss of tracking.
+                            </p>
+                            <p>
+                                Circle detection was partially successful, often misclassifying noise blobs or sharp corners as circles.
+                                Future improvements could involve using contour matching or Hough Transform to enhance robustness.
+                            </p>
+
+                            <h3>Conclusion</h3>
+                            <p>
+                                This project successfully demonstrated a low-cost, vision-based path-following system for aerial robots.
+                                The integration of image processing with closed-loop flight control in Simulink makes the platform ideal for rapid prototyping of autonomous behaviors.
+                                Future work can focus on using machine learning for adaptive thresholding and improving landing logic via geometric template matching.
+                            </p>
+
+                            <h3>Challenges</h3>
+                            <ul>
+                                <li>Real-time noise during flight causes false color detection.</li>
+                                <li>Circle detection fails under uneven lighting conditions.</li>
+                                <li>Higher drone speeds reduce tracking reliability.</li>
+                            </ul>
+
+                            <h3>References</h3>
+                            <ul>
+                                <li><a href="https://www.mathworks.com/help/simulink/supportpkg/parrot_ref/color-detection-and-landing-parrot-example.html">MathWorks - Color Detection and Landing Example</a></li>
+                                <li><a href="https://www.mathworks.com/help/simulink/supportpkg/parrot_ref/getting-started-with-parrot-minidrone-vision.html">Getting Started with Parrot Vision</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=UlDknqrtAHM">MATLAB Drone Control Tutorial</a></li>
+                                <li><a href="https://www.mathworks.com/help/simulink/supportpkg/parrot_ref/path-planning-keyboard-example.html">Keyboard Path Planning - Simulink</a></li>
+                            </ul>
+                        </section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Tempe, Arizona</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+
+								</ul>
+							</section>
+						</section>
+					</footer>
+					<script>
+						document.querySelector('video').playbackRate = 8.0;
+					</script>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>_____________________________________________________________________________________________________________</ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

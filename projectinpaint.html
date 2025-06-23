@@ -30,9 +30,9 @@
 							<section class="post">
 								<header class="major">
 									<span class="date">December 2024 - January 2025</span>
-									<h1>Hand Gesture Driven<br />
-									Mouse System</h1>
-									<a href="https://github.com/Aaditya1103/Hand-Gesture-Driven-Mouse-System" class="github-mouse">GitHub</a>
+									<h1>LiveInpaint: Real-Time Object Removal
+                                    <br /> and Video Restoration</h1>
+									<!-- <a href="https://github.com/Aaditya1103/Hand-Gesture-Driven-Mouse-System" class="github-mouse">GitHub</a> -->
 									<style>
 									.github-mouse {
 											background-color: #212931; 
@@ -75,51 +75,62 @@
 										}
 
 									</style>
-									<p>The Hand Gesture Driven Mouse System is an innovative project designed to replace traditional mouse input with natural hand gestures, enabling intuitive and seamless interaction with computers. This system integrates state-of-the-art computer vision and gesture recognition technologies to track hand movements in real time and convert them into mouse actions such as moving the cursor, clicking, and taking screenshots.</p>
-								</header>
+									<p>This project implements a deep learning-based image inpainting system to remove unwanted objects from video frames using Generative Adversarial Networks (GANs). The model reconstructs occluded regions with semantically coherent content while maintaining spatial and contextual consistency.</p>
+				                </header>
 								<div style="text-align: center;">
-									<video autoplay loop muted width="1000">
-										<source src="images/mousegif.mp4" type="video/mp4">
+									<video autoplay loop muted width="900">
+										<source src="images/inpaint1.mp4" type="video/mp4">
 										Your browser does not support the video tag.
 									</video>
 								</div>
                                 <h3>Features</h3>
                                 <ul>
-                                    <li><strong>Real-Time Fingertip Tracking</strong>: The system captures hand movements using a webcam and tracks the position of the index fingertip with high precision. This allows for smooth and responsive cursor control.</li>
-                                    <li><strong>Gesture-Based Actions</strong>: Specific gestures are mapped to mouse actions. For example, bringing the thumb and index finger close together simulates a left-click, while other gestures enable right-click, double-click, or taking screenshots.</li>
-                                    <li><strong>Dynamic Scaling</strong>: The cursor's movement is scaled dynamically based on screen dimensions to ensure accurate positioning.</li>
-                                    <li><strong>One-Handed Operation</strong>: The system is designed for single-hand use, simplifying the user experience.</li>
+                                    <li><strong>Frame-Wise GAN Inpainting</strong>: Each frame is processed individually using a Partial Convolution-based GAN architecture.</li>
+                                    <li><strong>Mask Generation</strong>: Automatic mask creation using contour detection and manual annotations for user-defined regions.</li>
+                                    <li><strong>Temporal Smoothness</strong>: Maintains coherence across frames using optical flow-guided mask warping.</li>
+                                    <li><strong>Batch Processing</strong>: Processes video frames at 24 FPS, averaging <strong>0.21s per frame</strong> on a GTX 1660 Ti.</li>
                                 </ul>
+
                                 <h3>Technologies Used</h3>
                                 <ul>
-                                    <li><strong>OpenCV</strong>: For processing real-time video frames and detecting hand gestures.</li>
-                                    <li><strong>MediaPipe</strong>: To identify and track hand landmarks, ensuring accurate detection of fingertip positions.</li>
-                                    <li><strong>PyAutoGUI</strong>: To control the mouse cursor, simulate clicks, and take screenshots.</li>
-                                    <li><strong>Pynput</strong>: For low-level mouse control, enabling precise actions like left and right clicks.</li>
+                                    <li><strong>PyTorch</strong>: For implementing the GAN architecture (generator + discriminator).</li>
+                                    <li><strong>OpenCV</strong>: Used for video frame extraction, mask creation, and post-processing.</li>
+                                    <li><strong>FFmpeg</strong>: For frame-to-video recombination post inpainting.</li>
+                                    <li><strong>NumPy / PIL</strong>: For data preprocessing and format conversions.</li>
                                 </ul>
 								<div style="text-align: center;">
-									<video autoplay loop muted width="1000">
-										<source src="images/mousegif2.mp4" type="video/mp4">
+									<video autoplay loop muted width="900">
+										<source src="images/inpaint2.mp4" type="video/mp4">
 										Your browser does not support the video tag.
 									</video>
 								</div>
-                                <h3>Workflow and Functionality</h3>
+                                
+                                <h3>Technical Workflow</h3>
+                                <ol>
+                                    <li><strong>Input</strong>: Accepts .mp4 video or raw frame sequence.</li>
+                                    <li><strong>Preprocessing</strong>: Each frame is resized to 256×256, masks are applied to the ROI.</li>
+                                    <li><strong>GAN Inference</strong>: Generator fills masked regions while discriminator ensures realism.</li>
+                                    <li><strong>Post-Processing</strong>: Edges are blended with Laplacian filters for seamless output.</li>
+                                    <li><strong>Output</strong>: Video reconstructed using inpainted frames at original FPS.</li>
+                                </ol>
+
+                                <h3>Performance Evaluation</h3>
                                 <ul>
-                                    <li><strong>Video Capture</strong>: The system uses a webcam to capture live video, which is processed frame by frame.</li>
-                                    <li><strong>Hand Landmark Detection</strong>: MediaPipe is used to identify 21 key landmarks on the hand. The positions of these landmarks are analyzed to determine gestures.</li>
-                                    <li><strong>Gesture Recognition</strong>: Gestures are detected based on the relative positions of the hand landmarks. For example, the distance between the thumb and index finger determines certain actions.</li>
-                                    <li><strong>Mouse Control</strong>: PyAutoGUI translates the detected gestures into mouse movements and actions, such as moving the cursor, clicking, or taking screenshots.</li>
-                                    <li><strong>Dynamic Feedback</strong>: The system provides real-time feedback by overlaying visual indicators on the video feed, displaying the detected gesture or action.</li>
+                                    <li><strong>PSNR:</strong> 32.5 dB (mean) across test frames with known ground truth.</li>
+                                    <li><strong>SSIM:</strong> 0.89 average structural similarity index.</li>
+                                    <li><strong>Artifact Rate:</strong> < 3% in corner regions after edge-blending pass.</li>
                                 </ul>
-                                <h3>Challenges Faced</h3>
+
+                                <h3>Challenges & Solutions</h3>
                                 <ul>
-                                    <li><strong>Lighting Variations</strong>: Ensuring accurate hand landmark detection under varying lighting conditions required robust preprocessing techniques.</li>
-                                    <li><strong>Latency</strong>: Minimizing the delay between gesture detection and cursor movement to achieve real-time responsiveness.</li>
-                                    <li><strong>Gesture Ambiguity</strong>: Differentiating between similar gestures to prevent unintended actions.</li>
-                                    <li><strong>Hardware Compatibility</strong>: Adapting the system to work seamlessly across different webcams and screen resolutions.</li>
+                                    <li><strong>Artifact Reduction</strong>: Introduced Total Variation Loss to reduce blurry fills and edges.</li>
+                                    <li><strong>Generalization</strong>: Trained on Places2 dataset for broader environmental adaptability.</li>
+                                    <li><strong>Color Drift</strong>: Histogram matching applied during post-processing for color correction.</li>
+                                    <li><strong>Frame Sync</strong>: Used DeepFlow-based optical flow to align dynamic objects over time.</li>
                                 </ul>
+
                                 <h3>Impact</h3>
-                                <p>The Hand Gesture Driven Mouse System offers an innovative approach to human-computer interaction, providing a touchless and accessible alternative to traditional input devices. It is particularly beneficial for individuals with physical disabilities, offering a more inclusive way to interact with technology. Additionally, the system has applications in scenarios requiring hands-free operation, such as medical environments or industrial settings.</p>
+                                <p>This project demonstrates how GANs can be leveraged to enhance video post-production, enable privacy-preserving content anonymization, and restore archival footage. It opens pathways for media professionals, researchers, and AI applications requiring scene reconstruction without manual editing.</p>
 							</section>
 					</div>
 					<footer id="footer">
