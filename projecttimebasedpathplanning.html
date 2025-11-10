@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">AADITYA SAKHARDANDE</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="index.html#skills">Skills</a></li>
+							<li><a href="index.html#coursework">Coursework</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+                            <header class="major">
+                                <span class="date">August 2025 - September 2025</span>
+                                <h1>Time-Based Grid Search & Multi-Agent Path Planning</h1>
+								<a href="" class="github-bot">GitHub</a>
+									<style>
+									.github-bot {
+											background-color: #212931; 
+											font-family: "Source Sans Pro", Helvetica, sans-serif;
+											font-size: 1rem;
+											font-weight: 200;
+											color: white;
+											text-decoration: none;
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+											-moz-appearance: none;
+											-webkit-appearance: none;
+											-ms-appearance: none;
+											appearance: none;
+											-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											border: 0;
+											border-radius: 0;
+											cursor: pointer;
+											display: inline-block;
+											letter-spacing: 0.075em;
+											height: 3rem;
+											line-height: 3rem;
+											padding: 0 2rem;
+											text-align: center;
+											text-decoration: none;
+											text-transform: uppercase;
+											white-space: nowrap;
+										}
+
+										.github-mouse:hover {
+											background-color: #333; 
+											transform: scale(1.05);
+										}
+
+										.github-mouse:active {
+											background-color: #222;
+											transform: scale(0.98);
+										}
+										video {
+											width: 60%;
+											height: auto;
+										}
+									</style>
+                                    <p>
+                                        A technical deep dive into Space-Time A*, Safe Interval Path Planning (SIPP), and Priority-Based Multi-Agent Planning.  
+                                        Focus: state-space formulations, optimality constraints, temporal safety invariants, and complexity properties.
+                                    </p>
+                            </header>
+                            <div style="display: flex; justify-content: center;">
+							<img src="images/path_animation.gif" style="width: 100%; max-width: 700px; height: auto;">
+							</div>	
+                            <p>
+                            Time-augmented search expands the discrete grid into a 3D lattice <strong>ℤ² × ℤ</strong>, enabling planners to reason over spatiotemporal feasibility. 
+                            Moves become transitions in a time-indexed transition system, providing collision-avoidance guarantees against dynamic obstacles and other agents.
+                            </p>
+                            <h3>Abstract</h3>
+                            <p>
+                            This document provides a technical overview of time-parameterized grid search algorithms used for dynamic obstacle avoidance and multi-agent path coordination. 
+                            We formalize the state lattice, define safe intervals, derive the successor-time feasibility constraints, compare asymptotic expansion bounds, and summarize how priority-based planning integrates these primitives via reservation tables. 
+                            Reduced but illustrative pseudocode is included for critical operations such as time-feasible successor generation and safe-interval merging.
+                            </p>
+
+                            <h3>Introduction</h3>
+                            <p>
+                            Given a grid <strong>G = (V,E)</strong> and a set of spatiotemporal obstacle constraints <strong>O(x,y,t)</strong>, the feasibility problem becomes finding a sequence:
+                            </p>
+
+                            <p style="text-align:center;">
+                            π = { (x₀,y₀,t₀), (x₁,y₁,t₁), ..., (xₖ,yₖ,tₖ) }  
+                            </p>
+
+                            <p>
+                            such that:
+                            </p>
+
+                            <ul>
+                            <li>(xᵢ,yᵢ) ∈ V and (xᵢ,yᵢ,tᵢ) ∉ O</li>
+                            <li>(xᵢ,yᵢ) and (xᵢ₊₁,yᵢ₊₁) are adjacent (or identical if waiting)</li>
+                            <li>tᵢ₊₁ = tᵢ + Δt, commonly Δt = 1</li>
+                            <li>No edge conflicts: ((xᵢ,yᵢ) → (xᵢ₊₁,yᵢ₊₁)) ≠ ((xⱼ₊₁,yⱼ₊₁) → (xⱼ,yⱼ)) for any agent pair</li>
+                            </ul>
+                            <div style="display: flex; justify-content: center;">
+							<img src="images/path_animation2.gif" style="width: 100%; max-width: 850px; height: auto;">
+							</div>	
+                            <h3>Planner Architecture</h3>
+                            <ul>
+                            <li><strong>State Representation:</strong> s = (x, y, t)</li>
+                            <li><strong>Transition Model:</strong> deterministic, 4-/8-connected + wait action</li>
+                            <li><strong>Time Feasibility:</strong> successor states must satisfy free-space and free-edge constraints</li>
+                            <li><strong>Single-Agent Planner:</strong> Space-Time A* or SIPP</li>
+                            <li><strong>Multi-Agent Coordinator:</strong> Priority-based planning with a reservation table R(t)</li>
+                            </ul>
+
+                            <h3>Methodology</h3>
+
+                            <h4>1. Space-Time A* (STA*)</h4>
+                            <p>
+                            STA* applies A* to the time-augmented lattice. The cost metric is temporal: <strong>g(s) = t</strong>.  
+                            Admissible heuristics use minimum-time lower bounds:
+                            </p>
+
+                            <p style="text-align:center;">
+                            h(s) = L₁(s, goal) / v<sub>max</sub>
+                            </p>
+
+                            <p>
+                            Key property: If <em>h</em> is time-admissible and no negative delays exist, STA* is <strong>optimal in time</strong> relative to the discretization.
+                            </p>
+
+                            <h5>STA* Successor Generation </h5>
+                            <pre><code class="language-python">
+                            def sta_successors(s):
+                                x,y,t = s
+                                for nx,ny in neighbors(x,y):
+                                    nt = t + 1
+                                    if not blocked(nx,ny,nt):
+                                        yield (nx,ny,nt)
+                            </code></pre>
+
+                            <p>
+                            This expansion quickly becomes large because |V×T| grows linearly with horizon length T.  
+                            This motivates the SIPP reduction.
+                            </p>
+
+                            <h4>2. Safe Interval Path Planning (SIPP)</h4>
+                            <p>
+                            For each cell c = (x,y), precompute maximal time intervals during which the cell is provably unoccupied:
+                            </p>
+
+                            <p style="text-align:center;">
+                            I(c) = { [t₀,t₁], [t₂,t₃], ... }
+                            </p>
+
+                            <p>
+                            A SIPP node is <strong>(x, y, I = [t_low, t_high], arrival_t)</strong>.  
+                            This drastically reduces branching, because SIPP searches over <em>intervals</em>, not individual time steps.
+                            </p>
+
+                            <h5>Safe Interval Extraction (conceptual)</h5>
+                            <pre><code class="language-python">
+                            def extract_intervals(occupancy_vector):
+                                intervals = []
+                                t = 0
+                                while t < Tmax:
+                                    if occupancy_vector[t] == FREE:
+                                        start = t
+                                        while t < Tmax and occupancy_vector[t] == FREE:
+                                            t += 1
+                                        intervals.append((start, t-1))
+                                    t += 1
+                                return intervals
+                            </code></pre>
+                            <div style="display: flex; justify-content: center;">
+							<img src="images/path_animation2.gif" style="width: 100%; max-width: 850px; height: auto;">
+							</div>
+                            <h4>3. Priority-Based Multi-Agent Planning</h4>
+                            <p>Agents are sorted by priority π₁ ≻ π₂ ≻ … ≻ πₙ.  
+                            For each agent k:</p>
+
+                            <ol>
+                            <li>Use STA* or SIPP with a modified <strong>blocked(x,y,t)</strong> that checks the reservation table R</li>
+                            <li>Insert the resulting trajectory into R</li>
+                            <li>Ensure no <em>vertex conflicts</em>: (x,y,t) occupied by multiple agents</li>
+                            <li>Ensure no <em>edge conflicts</em>: simultaneous swaps</li>
+                            </ol>
+                            <p>The reservation table is typically:</p>
+                            <pre><code class="language-python">
+                            R = { t: set((x,y)), 
+                                ("edge", t, (x1,y1),(x2,y2)): True }
+                            </code></pre>
+                            <p>Priority planners are NOT optimal but extremely efficient in moderately coupled domains.</p>
+
+
+                            <h3>Technical Analysis</h3>
+
+                            <h4>State-Space Complexity</h4>
+                            <p>
+                            Let |G| be number of grid cells, T the time horizon.
+                            </p>
+
+                            <ul>
+                            <li>STA*: O(|G|·T) nodes</li>
+                            <li>SIPP: O(|G|·|I(c)|) where |I(c)| ≪ T; often reduces expansions by ≥ 10×</li>
+                            <li>Priority Planner: O(n · C_single) where n agents and C_single is single-agent cost</li>
+                            </ul>
+
+                            <h4>Collision Constraints</h4>
+                            <p>
+                            A multi-agent plan must satisfy both:
+                            </p>
+                            <ul>
+                            <li><strong>Vertex Safety:</strong> ∀ agents i≠j, (xᵢ(t),yᵢ(t)) ≠ (xⱼ(t),yⱼ(t))</li>
+                            <li><strong>Edge Safety:</strong> (xᵢ(t),yᵢ(t)) → (xᵢ(t+1),yᵢ(t+1))  
+                                ≠  
+                                (xⱼ(t+1),yⱼ(t+1)) → (xⱼ(t),yⱼ(t))</li>
+                            </ul>
+
+                            <h4>Heuristic Construction</h4>
+                            <p>
+                            Time-admissible heuristic:
+                            </p>
+                            <p style="text-align:center;">
+                            h(s) = ⌈ ||pos(s) − goal||₁ / v<sub>max</sub> ⌉
+                            </p>
+                            <h3>Conclusion</h3>
+                            <p>
+                            Time-based planning elevates grid navigation to a full spatiotemporal scheduling problem. STA* provides a baseline with strong optimality guarantees but suffers from time-explosion. SIPP reduces dimensionality by representing maximal contiguous free-time sets as safe intervals, yielding one of the most efficient exact planners for dynamic environments. Priority-based planning overlays these single-agent planners with an efficient collision-avoidance mechanism suitable for multi-robot systems with moderate coupling.
+                            </p>
+
+                            <h3>Challenges</h3>
+                            <ul>
+                            <li>Large time horizons ⇒ exponential search growth</li>
+                            <li>Narrow passages ⇒ priority planners frequently fail without backtracking</li>
+                            <li>Dynamic obstacle uncertainty ⇒ STA*/SIPP require deterministic predictions</li>
+                            </ul>
+
+                            <h3>References</h3>
+                            <ul>
+                            <li><a href="https://atsushisakai.github.io/PythonRobotics/modules/5_path_planning/time_based_grid_search/time_based_grid_search.html">PythonRobotics - Time-Based Grid Search</a></li>
+                            <li>Phillips & Likhachev — <em>Safe Interval Path Planning (SIPP)</em></li>
+                            <li>Erdmann & Lozano-Pérez — <em>On multiple moving objects</em> (classic spatiotemporal search)</li>
+                            <li>Van den Berg et al. — <em>Cooperative path planning</em></li>
+                            </ul>
+
+  
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Tempe, Arizona</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+
+								</ul>
+							</section>
+						</section>
+					</footer>
+					<script>
+						document.querySelector('video').playbackRate = 8.0;
+					</script>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>_____________________________________________________________________________________________________________</ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
