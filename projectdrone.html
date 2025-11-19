@@ -92,7 +92,12 @@
                                     </p>
                             </header>
 
-                            <div class="image main"><img src="images/"></div>
+                            <div style="text-align: center;">
+									<video autoplay loop muted width="1100">
+										<source src="images/drone2.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+							</div>
                             <p>
                                 Color detection is important for robotic navigation. This project uses a Parrot Mambo minidrone, which has a
                                 camera, SONAR, and pressure sensors. The camera captures RGB images, and MATLAB code processes them to detect
@@ -152,6 +157,7 @@
                                 <li>G channel: 0 to 6</li>
                                 <li>B channel: 0 to 6</li>
                             </ul>
+							
                             <p>
                                 The RGB image is masked based on the above thresholds. This isolates regions of interest corresponding to the target color. 
                                 To reduce noise, a field of view (FOV) cone is dynamically adjusted depending on the drone’s current direction.
@@ -172,13 +178,6 @@
                                 If the change in angle exceeds a threshold (π/18), the algorithm updates the “current_position” using a weighted average.
                                 When the drone aligns perfectly with the line, the detection cone is widened (FOV = π, r_max = 100) to make the tracking more stable.
                             </p>
-							<div style="text-align: center;">
-									<video autoplay loop muted width="1100">
-										<source src="images/drone2.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-									</video>
-							</div>
-
                             <h4>Circle Detection for Landing</h4>
                             <p>
                                 To simulate autonomous landing, the algorithm also detects circular objects. After color segmentation:
