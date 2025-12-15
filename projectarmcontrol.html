@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">AADITYA SAKHARDANDE</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="index.html#skills">Skills</a></li>
+							<li><a href="index.html#coursework">Coursework</a></li>
+							<li><a href="aboutme.html">About Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+                            <header class="major">
+                                <span class="date">October 2025 - November 2025</span>
+                                <h1>Robotic Arm Control Motion Planning</h1>
+								<a href="https://github.com/Aaditya1103/Multi-DOF-Robotic-Arm-Control-Motion-Planning/tree/main" class="github-bot">GitHub</a>
+									<style>
+									.github-bot {
+											background-color: #212931; 
+											font-family: "Source Sans Pro", Helvetica, sans-serif;
+											font-size: 1rem;
+											font-weight: 200;
+											color: white;
+											text-decoration: none;
+											box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+											-moz-appearance: none;
+											-webkit-appearance: none;
+											-ms-appearance: none;
+											appearance: none;
+											-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+											border: 0;
+											border-radius: 0;
+											cursor: pointer;
+											display: inline-block;
+											letter-spacing: 0.075em;
+											height: 3rem;
+											line-height: 3rem;
+											padding: 0 2rem;
+											text-align: center;
+											text-decoration: none;
+											text-transform: uppercase;
+											white-space: nowrap;
+										}
+
+										.github-mouse:hover {
+											background-color: #333; 
+											transform: scale(1.05);
+										}
+
+										.github-mouse:active {
+											background-color: #222;
+											transform: scale(0.98);
+										}
+										video {
+											width: 60%;
+											height: auto;
+										}
+									</style>
+                                    <p>
+                                        This project focuses on the modeling, control, and motion planning of robotic manipulators
+                                        with increasing degrees of freedom. It begins with an analytical inverse kinematics solution
+                                        for a planar two-joint arm, extends to Jacobian-based differential control for an N-joint
+                                        planar manipulator, and culminates in sampling-based RRT* motion planning for a seven-joint
+                                        spatial robotic arm with obstacle avoidance.
+                                    </p>
+                                    </header>
+                                    <div style="display: flex; justify-content: center;">
+                                    <img src="images/armcontrolangle.png" style="height:50%; width: 100%; max-width: 900px;">
+                                        <video autoplay loop muted width=100>
+                                            <source src="images/armcontrol1.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+
+                                    <p>
+                                        Robotic manipulators require precise coordination between kinematic modeling, control laws,
+                                        and motion planning algorithms. This project explores three fundamentally different paradigms
+                                        of arm motion generation: closed-form inverse kinematics, Jacobian-based differential control,
+                                        and probabilistic sampling-based planning in high-dimensional configuration spaces.
+                                        All systems are implemented in Python with real-time visualization.
+                                    </p>
+
+                                    <h3>Abstract</h3>
+                                    <p>
+                                        This project presents a progressive study of robotic arm control and motion planning across
+                                        increasing degrees of freedom. A planar two-degree-of-freedom (2-DOF) arm is first controlled
+                                        using analytical inverse kinematics with proportional feedback to ensure smooth convergence
+                                        to arbitrary Cartesian targets. The approach is then generalized to an N-DOF planar arm using
+                                        Jacobian-based inverse kinematics with damped least-squares inversion to address redundancy
+                                        and singularity issues. Finally, a seven-degree-of-freedom (7-DOF) spatial manipulator is
+                                        controlled using the RRT* (Rapidly-exploring Random Tree Star) algorithm in joint space,
+                                        enabling collision-free path planning in environments with obstacles. The results demonstrate
+                                        the strengths and limitations of local control versus global planning methods for robotic manipulators.
+                                    </p>
+
+                                    <h3>Introduction</h3>
+                                    <p>
+                                        Robotic arm manipulation is a core problem in robotics, spanning applications from industrial
+                                        automation to surgical robotics and humanoid manipulation. While low-degree-of-freedom arms
+                                        can often be controlled using analytical inverse kinematics, higher-degree-of-freedom and
+                                        redundant systems require numerical and optimization-based approaches.
+                                    </p>
+
+                                    <div style="text-align: center;">
+                                        <video autoplay loop muted>
+                                            <source src="images/armcontrol2.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+
+                                    <p>
+                                        This project investigates how arm control strategies evolve with increasing complexity.
+                                        Analytical inverse kinematics provides exact solutions but scales poorly. Jacobian-based
+                                        methods enable smooth, local task-space control for redundant manipulators. Sampling-based
+                                        planners such as RRT* operate in joint space and provide global solutions that respect
+                                        kinematic constraints and obstacle avoidance.
+                                    </p>
+
+                                    <h3>System Architecture</h3>
+                                    <p>
+                                        The overall system is divided into three primary subsystems corresponding to different levels
+                                        of abstraction in robotic manipulation:
+                                    </p>
+                                    <ul>
+                                        <li><strong>Kinematic Modeling:</strong> Forward kinematics using serial-chain formulations and Denavit–Hartenberg parameters.</li>
+                                        <li><strong>Control:</strong> Analytical and Jacobian-based inverse kinematics for real-time end-effector regulation.</li>
+                                        <li><strong>Motion Planning:</strong> Sampling-based RRT* planning in joint space with collision checking.</li>
+                                    </ul>
+
+                                    <div style="text-align: center;">
+                                        <video autoplay loop muted>
+                                            <source src="images/armcontrol3.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+
+                                    <h3>Methodology</h3>
+
+                                    <h4>Analytical Inverse Kinematics (2-DOF Arm)</h4>
+                                    <p>
+                                        For the planar two-joint arm, closed-form inverse kinematics is derived using trigonometric
+                                        relationships and the law of cosines. Given a desired Cartesian end-effector position (x, y),
+                                        joint angles θ₁ and θ₂ are computed exactly, provided the target lies within the reachable
+                                        workspace. To improve numerical stability and visualization smoothness, a proportional
+                                        feedback controller is applied in joint space rather than directly commanding the solution.
+                                    </p>
+
+                                    <p>
+                                        When the target lies outside the arm’s reachable workspace, the solution is clamped to the
+                                        workspace boundary, ensuring continuous and physically valid motion.
+                                    </p>
+
+                                    <h4>Jacobian-Based Inverse Kinematics (N-DOF Arm)</h4>
+                                    <p>
+                                        For the N-joint planar arm, inverse kinematics is solved using a differential formulation.
+                                        The manipulator Jacobian maps joint velocities to end-effector velocities, allowing joint
+                                        updates to be computed from Cartesian position error.
+                                    </p>
+
+                                    <p>
+                                        To handle redundancy and avoid numerical instability near singular configurations, a
+                                        damped least-squares (DLS) pseudo-inverse is used:
+                                    </p>
+
+                                    <p style="font-family: monospace; text-align: center;">
+                                        θ̇ = Jᵀ (J Jᵀ + λ² I)⁻¹ e
+                                    </p>
+
+                                    <p>
+                                        This formulation ensures smooth convergence even in configurations where the Jacobian
+                                        becomes ill-conditioned. Joint angles are updated incrementally using Euler integration,
+                                        enabling real-time interactive control of the end effector.
+                                    </p>
+
+                                    <h4>RRT* Motion Planning (7-DOF Arm)</h4>
+                                    <p>
+                                        For the seven-degree-of-freedom spatial manipulator, motion planning is performed in joint
+                                        space using the RRT* algorithm. Each node in the search tree represents a full joint
+                                        configuration, and edges correspond to interpolated joint-space motions.
+                                    </p>
+
+                                    <p>
+                                        Collision checking is performed by computing the forward kinematics of the arm for each
+                                        interpolated configuration and testing all link points against spherical obstacles in
+                                        Cartesian space. RRT* improves upon standard RRT by rewiring the tree to minimize path cost,
+                                        producing asymptotically optimal solutions.
+                                    </p>
+
+                                    <h3>Testing and Results</h3>
+                                    <p>
+                                        The analytical inverse kinematics controller demonstrated fast and stable convergence for
+                                        all reachable targets, with smooth trajectories and predictable behavior. The Jacobian-based
+                                        controller successfully handled redundancy and allowed flexible arm postures, though it
+                                        exhibited slower convergence near singularities.
+                                    </p>
+
+                                    <p>
+                                        The RRT* planner consistently generated collision-free joint-space paths for the 7-DOF arm
+                                        in cluttered environments. While computationally more expensive, it enabled global motion
+                                        planning that local inverse kinematics methods cannot provide.
+                                    </p>
+
+                                    <h3>Conclusion</h3>
+                                    <p>
+                                        This project highlights the hierarchical nature of robotic manipulation. Analytical and
+                                        Jacobian-based inverse kinematics are effective for local control and real-time interaction,
+                                        while sampling-based planners such as RRT* are essential for global navigation and obstacle
+                                        avoidance in high-dimensional systems. Together, these methods form the foundation of modern
+                                        robotic arm autonomy.
+                                    </p>
+
+                                    <h3>Challenges</h3>
+                                    <ul>
+                                        <li>Jacobian singularities can degrade convergence speed.</li>
+                                        <li>RRT* planning becomes computationally expensive in high-dimensional spaces.</li>
+                                        <li>Local IK methods cannot guarantee collision-free motion.</li>
+                                    </ul>
+
+                                    <h3>References</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="https://atsushisakai.github.io/PythonRobotics/modules/7_arm_navigation/planar_two_link_ik.html">
+                                                Atsushi Sakai et al. – PythonRobotics: Planar Two-Link Inverse Kinematics
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://ieeexplore.ieee.org/document/404181">
+                                                Nakamura, Y. – Advanced Robotics: Redundancy and Optimization
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://lavalle.pl/planning/">
+                                                LaValle, S. – Planning Algorithms
+                                            </a>
+                                        </li>
+                                    </ul>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Tempe, Arizona</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+									<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+
+								</ul>
+							</section>
+						</section>
+					</footer>
+					<script>
+						document.querySelector('video').playbackRate = 8.0;
+					</script>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>_____________________________________________________________________________________________________________</ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
