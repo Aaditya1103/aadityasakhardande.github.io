@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+<!-- Header -->
+<header id="header">
+<a href="index.html" class="logo">AADITYA SAKHARDANDE</a>
+</header>
+<!-- Nav -->
+<nav id="nav">
+<ul class="links">
+<li class="active"><a href="index.html">Projects</a></li>
+<li><a href="Aaditya_Resume.pdf" target="_blank">Resume</a></li>
+<li><a href="index.html#skills">Skills</a></li>
+<li><a href="index.html#coursework">Coursework</a></li>
+<li><a href="aboutme.html">About Me</a></li>
+</ul>
+<ul class="icons">
+<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major">
+<span class="date">January 2026 - Present</span>
+<h1>Robotics Engineer, Systems and Applications (GrayMatter Robotics)</h1>
+<p><br>I joined GrayMatter Robotics in Los Angeles, CA as a Robotics Engineer, working on the company's AI-driven robotic surface-finishing platform, GMR-AI, which lets a robot scan an unfamiliar part, understand its geometry,
+and generate its own toolpath for sanding, polishing, or finishing rather than relying on a hand-taught program. After my first stint standing up the FANUC, vision, and software stack behind that platform, I moved into a
+Systems and Applications role focused on the deployment side of the business: getting finished systems installed, validated, and handed off cleanly at customer sites.</p>
+</header>
+<div class="card shadow-sm p-4">
+
+<h2>Role Overview</h2>
+<p>GrayMatter Robotics builds autonomous robotic cells that scan a part, plan a toolpath, and execute sanding or polishing operations without a human pre-programming every motion. Across my time at the company, my work has spanned
+both sides of what it takes to make that system real in a factory: the engineering that makes the robot capable (robot programming, sensor integration, and software architecture), and the engineering that makes a deployment
+succeed once it leaves the shop (on-site process, installation, and handoff to the customer's operators). The sections below walk through both phases of the role in order.</p>
+<div class="image main"><img src="images/gmrme.jpg"></div>
+<h2>Phase One: Robotics Engineer <span style="font-weight: 400; font-size: 0.8em;">(January 2026 – May 2026)</span></h2>
+<p>My first months at GrayMatter were spent on the core technical stack: programming the robots, wiring in the vision hardware that lets a cell "see" each part, and building the software that ties scanning, planning, and
+execution together.</p>
+
+<h3>FANUC Robot Deployment and On-Site Integration</h3>
+<p>I programmed and deployed FANUC robot arms to perform automated scanning and sanding on complex production parts. This included writing and tuning the robot-side programs that execute scan passes and finishing motions,
+as well as configuring I/O and communication between the FANUC controller and the rest of the cell (vision PCs, end-effector tooling, and the ROS2 application layer).
+<br>A significant part of this work happened on-site at customer facilities: bringing a new robotic cell online, running system activation checklists, and working through real-world constraints like fixturing, part variation,
+and cell layout that don't show up in a simulated environment. Getting a system from "working in the shop" to "reliable in someone else's factory" was the central engineering challenge of this phase.</p>
+
+<h3>Multi-Sensor 3D Vision Integration</h3>
+<p>To let the robot adapt to irregular part geometries instead of following a fixed, pre-taught path, I integrated multiple 3D vision systems into the pipeline, including LMI, Zivid, and Alvium cameras and sensors.
+Each vision system had its own SDK, calibration process, and data format, so a large part of this work involved building a consistent interface between the sensors and the robot's motion planner.
+<br>The resulting point-cloud and image data was used to localize the part in the cell, identify surface geometry, and adjust the robot's toolpath in real time, enabling the same system to handle a range of part shapes and sizes
+without needing a new program for every variant.</p>
+<div class="image main"><img src="images/gmrme2.jpg"></div>
+<h3>ROS2 Applications and Docker-Based Deployment</h3>
+<p>The scanning, planning, and execution logic ran as a set of ROS2 nodes, which I developed and maintained to coordinate vision input, motion planning, and robot control in a single pipeline.
+To keep deployments consistent across development machines and production cells, I containerized these applications with Docker, managing images and configurations so that a system could be rebuilt or moved to a new customer site
+without re-creating the environment by hand.
+<br>This mattered in practice: production environments needed to be reliable and reproducible, while the development environment needed to move fast, and the Docker-based workflow let both coexist without one slowing down the other.</p>
+
+<h3>Adaptive Error Detection for Sanding Quality</h3>
+<p>I extended the robotic sanding workflows with error detection mechanisms aimed at catching over-sanding and under-sanding on complex geometries, a common failure mode when a single fixed program is applied to parts with
+subtle shape variation. This involved feeding surface and process data back into the system so it could flag or correct passes that removed too much or too little material, rather than relying purely on an open-loop program.
+<br>Closing this feedback loop directly improved finishing precision and consistency, which is the core value proposition of an autonomous sanding system: matching or exceeding what a skilled human operator can do, repeatably.</p>
+
+<h2>Phase Two: Robotics Engineer, Systems and Applications <span style="font-weight: 400; font-size: 0.8em;">(August 2026 – Present)</span></h2>
+<p>Having helped build the underlying robot and software stack, I moved into a role focused on the deployment side: making sure a system that works technically also lands well operationally at a customer site.</p>
+
+<h3>On-Site Deployment Process Development and Customer Handoff</h3>
+<p>My current focus is intensive process development for on-site robot deployment at customer facilities, with the goal of making every installation smoother and more repeatable than the last. That means tightening up the
+steps between a robot arriving on a customer's floor and that customer's own team being able to run it independently: sequencing installation tasks, anticipating the site-specific issues that tend to slow deployments down,
+and building a clearer, more consistent handoff process for operations teams who did not build the system themselves.
+<br>Where my earlier work was about making the robot capable, this phase is about making capability repeatable across many different customer environments, and about closing the loop between engineering and the people who
+ultimately operate the system day to day.</p>
+
+<h2>Impact and Applications</h2>
+<p>The systems I have worked on are deployed in real manufacturing environments where manual sanding and finishing is repetitive, dusty, and ergonomically difficult for human workers. Automating these operations with FANUC robots,
+multi-sensor vision, adaptive control, and a disciplined deployment process:</p>
+<ul>
+<li><strong>Improves worker conditions</strong> by removing people from repetitive, dusty, and physically demanding finishing tasks.</li>
+<li><strong>Increases consistency and quality</strong> of surface finishing across high-mix production, where part shape and size vary from run to run.</li>
+<li><strong>Reduces scrap, rework, and cycle time</strong> by catching over- and under-sanding before it becomes a defect.</li>
+<li><strong>Shortens time-to-value for customers</strong> by turning installation and handoff into a smoother, more predictable process rather than a one-off engineering effort.</li>
+</ul>
+<p>This experience has given me a full-stack view of what it takes to move a robotics system out of the lab and into a live factory: integrating heterogeneous hardware, building software that is both fast to develop and reliable
+to deploy, and treating on-site commissioning and handoff as a core part of the engineering process rather than an afterthought.</p>
+
+</div>
+</section>
+<!-- Footer -->
+<footer id="footer">
+<section>
+<form method="post" action="#">
+<div class="fields">
+<div class="field">
+<label for="name">Name</label>
+<input type="text" name="name" id="name" />
+</div>
+<div class="field">
+<label for="email">Email</label>
+<input type="text" name="email" id="email" />
+</div>
+<div class="field">
+<label for="message">Message</label>
+<textarea name="message" id="message" rows="3"></textarea>
+</div>
+</div>
+<ul class="actions">
+<li><input type="submit" value="Send Message" /></li>
+</ul>
+</form>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Address</h3>
+<p>Tempe, Arizona</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="tel:+14807919046">+1 (480) 791-9046</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="mailto:aadityasakhardande@gmail.com">aadityasakhardande@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a href="https://www.linkedin.com/in/aaditya-sakhardande-980668206" class="icon brands alt fa-linkedin"><span class="label">LinkedIN</span></a></li>
+<li><a href="https://github.com/Aaditya1103" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+<li><a href="https://www.instagram.com/lm10aaditya" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul>_____________________________________________________________________________________________________________</ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
